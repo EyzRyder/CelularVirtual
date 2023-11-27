@@ -1,4 +1,4 @@
-# DIO - Trilha .NET - Programação orientada a objetos
+# DIO - Trilha .NET - Desafio Programação orientada a objetos
 www.dio.me
 
 ## Desafio de projeto
