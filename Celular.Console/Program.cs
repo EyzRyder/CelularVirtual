@@ -25,11 +25,20 @@ void Main(){
     }
 
     Console.WriteLine("\n");
-
+    if(selectedIndex==0)
+    {
     Console.WriteLine("Smartphone Iphone: ");
     Smartphone iphone = new Iphone(numero:"123456",modelo:"Modelo 1",imei:"111111111",memoria:64);
     iphone.ReceberLigacao();
     iphone.InstalarAplicativo("Telegram");
+    }
+    if(selectedIndex==1)
+    {
+    Console.WriteLine("Smartphone Nokia: ");
+    Smartphone nokia = new Nokia(numero:"123456",modelo:"Modelo 1",imei:"111111111",memoria:64);
+    nokia.ReceberLigacao();
+    nokia.InstalarAplicativo("Telegram");
+    }
 }
 
 void DrawSelectedMenu(string item)
@@ -66,6 +75,7 @@ int SelectIndexFromArray(string[] List, string message = "Select an Value: ")
         if(previousIndexOfLine != selectedIndexOfLine)
         {
             Console.Clear();
+            Console.WriteLine(message);
             UpdateMenu(selectedIndexOfLine,List);
             previousIndexOfLine = selectedIndexOfLine;
         }
@@ -92,7 +102,7 @@ Smartphone createPhone(int index, string[] StringList)
 {
     string phoneNumber,phoneImei,phoneModel;
     int phoneMemorie;
-
+    string[] memoria= new [] {"32","64","120","240"};
     do
     {
         Console.Clear();
@@ -104,7 +114,7 @@ Smartphone createPhone(int index, string[] StringList)
     do
     {
         Console.Clear();
-        Console.WriteLine("Qual seu imei do seu Celular ?");
+        Console.WriteLine("Qual seu imei do seu Celular? (ex: 111111111)");
         phoneImei = Console.ReadLine();
     }
     while (Regex.IsMatch(phoneImei,@"\d{9}")==false);
@@ -115,9 +125,8 @@ Smartphone createPhone(int index, string[] StringList)
 
     do
     {
-        Console.Clear();
-        Console.WriteLine("Quanto memoria seu Celular tem? ");
-        phoneMemorie = Convert.ToInt32(Console.ReadLine());
+        int memoriaIndex=SelectIndexFromArray(memoria,"Quanto memoria seu Celular tem?");
+        phoneMemorie = Convert.ToInt32(memoria[memoriaIndex]);
     } while (phoneMemorie<1);
 
     Console.Clear();
