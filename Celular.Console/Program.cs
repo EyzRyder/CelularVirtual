@@ -32,6 +32,8 @@ internal class Program
                 nokia.ReceberLigacao();
                 nokia.InstalarAplicativo("Telegram");
             }
+            Console.ReadLine();
+            userPhone.TurnOn();
         }
         catch(Exception err)
         {
