@@ -87,6 +87,8 @@ namespace DesafioPOO.Models
             {
                 case "x":
                     {
+
+                        Console.WriteLine("Digit um numero: ");
                         string userInput = Console.ReadLine();
                         if(float.TryParse(userInput,out float number))
                         {
@@ -96,6 +98,7 @@ namespace DesafioPOO.Models
                     break;
                 case "y":
                     {
+                        Console.WriteLine("Digit um numero: ");
                         string userInput = Console.ReadLine();
                         if(float.TryParse(userInput,out float number))
                         {
@@ -105,6 +108,7 @@ namespace DesafioPOO.Models
                     break;
                 case "o":
                     {
+                        Console.WriteLine("Digit um simbolo de operação: ");
                         string userInput = Console.ReadLine();
                         if(userInput.ToLower()=="x" || userInput=="+" || userInput =="-" || userInput =="/")
                         {
