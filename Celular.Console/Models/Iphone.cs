@@ -9,6 +9,15 @@ namespace DesafioPOO.Models
         {
             Console.WriteLine($"Instalando o aplicativo ''{nomeApp}'' no Iphone");
         }
+        public override void PhoneHead()
+        {
+            Console.WriteLine("||-----------------------------------||");
+            Console.WriteLine("||                 ()                ||");
+        }
+        public override void PhoneButt()
+        {
 
+            Console.WriteLine("||-----------------------------------||");
+        }
     }
 }

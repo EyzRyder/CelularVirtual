@@ -41,15 +41,6 @@ internal class Program
         }
     }
 
-    public static void DrawSelectedMenu(string item)
-    {
-        Console.BackgroundColor = ConsoleColor.White;
-        Console.ForegroundColor = ConsoleColor.Black;
-        Console.WriteLine($"> {item}");
-        Console.BackgroundColor = ConsoleColor.Black;
-        Console.ForegroundColor = ConsoleColor.White;
-    }
-
     public static void UpdateMenu(int index, string[] StringList)
     {
         foreach (var item in StringList)
@@ -57,7 +48,13 @@ internal class Program
             bool isSelected = item == StringList[index];
             if(isSelected)
             {
-                DrawSelectedMenu(item);
+                {
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine($"> {item}");
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
             } else{
                 Console.WriteLine($" {item}");
             }

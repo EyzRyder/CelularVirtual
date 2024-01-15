@@ -10,5 +10,18 @@ namespace DesafioPOO.Models
             Console.WriteLine($"Instalando o aplicativo ''{nomeApp}'' no Nokia");
 
         }
+        public override void PhoneHead()
+        {
+            Console.WriteLine("||===================================||");
+            Console.WriteLine("||==()=o==========----===============||");
+            Console.WriteLine("||-----------------------------------||");
+        }
+        public override void PhoneButt()
+        {
+
+            Console.WriteLine("||-----------------------------------||");
+            Console.WriteLine("||        ||        ()      >        ||");
+            Console.WriteLine("||===================================||");
+        }
     }
 }
