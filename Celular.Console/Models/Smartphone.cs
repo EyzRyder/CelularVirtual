@@ -26,12 +26,10 @@ namespace DesafioPOO.Models
             IMEI = imei;
             Memoria = memoria;
 
-            Console.WriteLine("Istalando Aplicativos do Sistemas ...");
             Mode.TryAdd("HOME",HomeSwitch);
             Mode.TryAdd("CALCULATOR",CalculatorSwitch);
             Mode.TryAdd("CLOCK",ClockSwitch);
             Mode.TryAdd("OFF",NOTHING);
-            Console.WriteLine("Aplicativos do Sistemas Istalando");
         }
 
         private void NOTHING(){

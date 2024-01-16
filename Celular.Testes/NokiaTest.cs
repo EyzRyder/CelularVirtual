@@ -1,20 +1,21 @@
+
 using DesafioPOO.Models;
 
 namespace Celular.Testes;
 
-public class IphoneTest
+public class NokiaTest
 {
     [Fact]
     public void VerificarLigacaoOutput()
     {
         // ARRAGE
-        Smartphone _iphone = new Iphone(numero:"119123456789",modelo:"Modelo 1",imei:"111111111",memoria:64);
+        Smartphone _nokia = new Nokia(numero:"119123456789",modelo:"Modelo 1",imei:"111111111",memoria:64);
         var expectedOutput = "Ligando...\r\n";
         var output = new StringWriter();
         Console.SetOut(output);
 
         // ACT
-        _iphone.Ligar();
+        _nokia.Ligar();
 
         // ASSERT
         Assert.Equal(expectedOutput, output.ToString());
@@ -23,13 +24,13 @@ public class IphoneTest
     public void VerificarReceberLigacaoOutput()
     {
         // ARRAGE
-        Smartphone _iphone = new Iphone(numero:"119123456789",modelo:"Modelo 1",imei:"111111111",memoria:64);
+        Smartphone _nokia = new Nokia(numero:"119123456789",modelo:"Modelo 1",imei:"111111111",memoria:64);
         var expectedOutput = "Recebendo ligação...\r\n";
         var output = new StringWriter();
         Console.SetOut(output);
 
         // ACT
-        _iphone.ReceberLigacao();
+        _nokia.ReceberLigacao();
 
         // ASSERT
         Assert.Equal(expectedOutput, output.ToString());
@@ -39,13 +40,13 @@ public class IphoneTest
     public void VerificarPhoneHeadOutput()
     {
         // ARRAGE
-        Smartphone _iphone = new Iphone(numero:"119123456789",modelo:"Modelo 1",imei:"111111111",memoria:64);
-        var expectedOutput = "||-----------------------------------||\r\n||                 ()                ||\r\n";
+        Smartphone _nokia = new Nokia(numero:"119123456789",modelo:"Modelo 1",imei:"111111111",memoria:64);
+        var expectedOutput = "||===================================||\r\n||==()=o==========----===============||\r\n||-----------------------------------||\r\n";
         var output = new StringWriter();
         Console.SetOut(output);
 
         // ACT
-        _iphone.PhoneHead();
+        _nokia.PhoneHead();
 
         // ASSERT
         Assert.Equal(expectedOutput, output.ToString());
@@ -55,13 +56,13 @@ public class IphoneTest
     public void VerificarPhoneButtOutput()
     {
         // ARRAGE
-        Smartphone _iphone = new Iphone(numero:"119123456789",modelo:"Modelo 1",imei:"111111111",memoria:64);
-        var expectedOutput = "||-----------------------------------||\r\n";
+        Smartphone _nokia = new Nokia(numero:"119123456789",modelo:"Modelo 1",imei:"111111111",memoria:64);
+        var expectedOutput = "||-----------------------------------||\r\n||        ||        ()      >        ||\r\n||===================================||\r\n";
         var output = new StringWriter();
         Console.SetOut(output);
 
         // ACT
-        _iphone.PhoneButt();
+        _nokia.PhoneButt();
 
         // ASSERT
         Assert.Equal(expectedOutput, output.ToString());
@@ -71,14 +72,14 @@ public class IphoneTest
     public void VerificarInstalacaoOutput()
     {
         // ARRAGE
-        Smartphone _iphone = new Iphone(numero:"119123456789",modelo:"Modelo 1",imei:"111111111",memoria:64);
+        Smartphone _nokia = new Nokia(numero:"119123456789",modelo:"Modelo 1",imei:"111111111",memoria:64);
         string appName="Telegrame";
-        var expectedOutput = $"Instalando o aplicativo ''{appName}'' no Iphone\r\n";
+        var expectedOutput = $"Instalando o aplicativo ''{appName}'' no Nokia\r\n";
         var output = new StringWriter();
         Console.SetOut(output);
 
         // ACT
-        _iphone.InstalarAplicativo(appName);
+        _nokia.InstalarAplicativo(appName);
 
         // ASSERT
         Assert.Equal(expectedOutput, output.ToString());
@@ -88,14 +89,14 @@ public class IphoneTest
     public void InstalarAplicativoNoSmartphoneErrado()
     {
         // ARRAGE
-        Smartphone _iphone = new Iphone(numero:"119123456789",modelo:"Modelo 1",imei:"111111111",memoria:64);
+        Smartphone _nokia = new Nokia(numero:"119123456789",modelo:"Modelo 1",imei:"111111111",memoria:64);
         string appName="Telegrame";
-        var expectedOutput = $"Instalando o aplicativo ''{appName}'' no Nokia\r\n";
+        var expectedOutput = $"Instalando o aplicativo ''{appName}'' no Iphone\r\n";
         var output = new StringWriter();
         Console.SetOut(output);
 
         // ACT
-        _iphone.InstalarAplicativo(appName);
+        _nokia.InstalarAplicativo(appName);
 
         // ASSERT
         Assert.NotEqual(expectedOutput, output.ToString());
@@ -105,7 +106,7 @@ public class IphoneTest
     public void PhoneNumberIsSameFromeCreated()
     {
         //ARRAGE
-        Smartphone Phone = new Iphone(numero:"119123456789",modelo:"Modelo 1",imei:"111111111",memoria:64);
+        Smartphone Phone = new Nokia(numero:"119123456789",modelo:"Modelo 1",imei:"111111111",memoria:64);
         var expectedPhoneNumber = "119123456789";
         //ACT
         var phoneNumber = Phone.Numero;
