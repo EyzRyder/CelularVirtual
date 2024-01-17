@@ -1,15 +1,83 @@
+using System.Text.RegularExpressions;
+
 namespace DesafioPOO.Models
 {
     public abstract class Smartphone
     {
-        public string Numero { get; set; }
-        private string Modelo { get; set; }
-        private string IMEI { get; set; }
-        private int Memoria { get; set; }
+        private string _numero;
+        public string Numero
+        {
+            get => _numero;
+            set
+            {
+                if(value == "")
+                {
+                    throw new ArgumentException("O numero não pode ser vazio;");
+                }
+
+                if(Regex.IsMatch(value,@"\d{11}")==false)
+                {
+                    throw new ArgumentException("O numero deve conter 11 caracteres, incluindo o dd;");
+                }
+
+                _numero =value;
+            }
+        }
+
+        private string _modelo;
+        private string Modelo
+        {
+            get => _modelo;
+            set
+            {
+                if(value == "")
+                {
+                    throw new ArgumentException("O modelo não pode ser vazio;");
+                }
+
+                _modelo =value;
+            }
+        }
+
+        private string _imei;
+        private string IMEI
+        {
+            get => _imei;
+            set
+            {
+                if(value == "")
+                {
+                    throw new ArgumentException("O IMEI não pode ser vazio;");
+                }
+
+                if(!Regex.IsMatch(value,@"\d{9}"))
+                {
+                    throw new ArgumentException("O IMEI deve conter 9 caracteres;");
+                }
+
+                _imei = value;
+            }
+        }
+
+        private int _memoria;
+        private int Memoria
+        {
+            get => _memoria;
+            set
+            {
+                if(value <0)
+                {
+                    throw new ArgumentException("A memoria não pode ser menor que 0 (zero);");
+                }
+
+                _memoria = value;
+            }
+        }
 
         private bool isOn { get; set; }
         private string input { get; set; }
         private string screenOption { get; set; }
+
         private Dictionary <string, Action> Mode = new Dictionary <string, Action>();
         private Dictionary <string, string> Calculation = new Dictionary <string, string>(4)
         {

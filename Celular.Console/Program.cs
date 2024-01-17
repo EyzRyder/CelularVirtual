@@ -21,14 +21,14 @@ internal class Program
             if(selectedIndex==0)
             {
                 Console.WriteLine("Smartphone Iphone: ");
-                Smartphone iphone = new Iphone(numero:"123456",modelo:"Modelo 1",imei:"111111111",memoria:64);
+                Smartphone iphone = new Iphone(numero:"119123456789",modelo:"Modelo 1",imei:"111111111",memoria:64);
                 iphone.ReceberLigacao();
                 iphone.InstalarAplicativo("Telegram");
             }
             if(selectedIndex==1)
             {
                 Console.WriteLine("Smartphone Nokia: ");
-                Smartphone nokia = new Nokia(numero:"123456",modelo:"Modelo 1",imei:"111111111",memoria:64);
+                Smartphone nokia = new Nokia(numero:"119123456789",modelo:"Modelo 1",imei:"111111111",memoria:64);
                 nokia.ReceberLigacao();
                 nokia.InstalarAplicativo("Telegram");
             }
