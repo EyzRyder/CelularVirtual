@@ -223,4 +223,21 @@ public class PhoneTest
         //ASSERT
         Assert.Equal(expectedPhoneNumber,phoneNumber);
     }
+
+
+    [Fact]
+    public void PhoneCreationError()
+    {
+        //ARRAGE
+        //ACT
+        Exception exIphone = Record.Exception(() => new Iphone(numero:"123456",modelo:"Modelo 1",imei:"1",memoria:0));
+        Exception exNokia = Record.Exception(() => new Nokia(numero:"123456",modelo:"Modelo 1",imei:"1",memoria:0));
+
+        //ASSERT
+        Assert.NotNull(exNokia);
+        Assert.Throws<ArgumentException>(() => new Nokia(numero:"123456",modelo:"Modelo 1",imei:"1",memoria:0));
+        Assert.NotNull(exIphone);
+        Assert.Throws<ArgumentException>(() => new Iphone(numero:"123456",modelo:"Modelo 1",imei:"1",memoria:0));
+    }
+
 }
