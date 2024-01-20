@@ -215,6 +215,33 @@ namespace DesafioPOO.Models
                 }
             }
 
+            void printSpaceColumn(int spaces=0)
+            {
+                for(int i = 0; i< spaces;i++)
+                {
+                    Console.Write(" ");
+                }
+            }
+            void printTextCenter(string s)
+            {
+                int stringLength = s.Length;
+                float length = 35-stringLength;
+                float halfLength = length/2;
+
+                int lengthSides = ((int)halfLength);
+                Console.Write("||");
+                printSpaceColumn(lengthSides);
+                Console.Write(s);
+                if((lengthSides*2)==length){
+                printSpaceColumn(lengthSides);
+                }
+                else
+                {
+                printSpaceColumn(lengthSides+1);
+                }
+                Console.WriteLine("||");
+            }
+
             switch (option)
             {
                 case "BLANK":
@@ -254,11 +281,13 @@ namespace DesafioPOO.Models
                             }
                         }
                         Console.WriteLine("|| s - sair | x - mudar 1° numero    ||");
-                        Console.WriteLine("|| y - mudar 2° numero | o - operacao||");
+                        printTextCenter("y - mudar 2 numero | o - operacao");
                         Console.WriteLine("||-----------------------------------||");
                         printEmptyRow(2);
-                        Console.WriteLine($"|| = {Calculation["result"]} ");
-                        Console.WriteLine($"||{Calculation["n1"]} {Calculation["operation"]} {Calculation["n2"]}");
+                        string textResult = "= "+Calculation["result"];
+                        printTextCenter(textResult);
+                        string textCalc = Calculation["n1"]+" "+Calculation["operation"]+" "+Calculation["n2"];
+                        printTextCenter(textCalc);
                         printEmptyRow(2);
                         Console.WriteLine("||-----------------------------------||");
                         Console.WriteLine("||         |         |         |     ||");
@@ -281,10 +310,12 @@ namespace DesafioPOO.Models
                 case "CLOCK":
                     {
                         DateTime date = DateTime.Today;
-
-                        printEmptyRow(12);
-                        Console.WriteLine($"{date.ToString("D")}");
-                        printEmptyRow(12);
+                        string todaysDate = date.ToString("D");
+                        printEmptyRow(1);
+                        printTextCenter("s - sair");
+                        printEmptyRow(11);
+                        printTextCenter(todaysDate);
+                        printEmptyRow(11);
                     }
                     break;
                 case "OFF":
